@@ -21,8 +21,6 @@ class SplitVC: NSSplitViewController {
 
         leftItem.collapseBehavior = .preferResizingSiblingsWithFixedSplitView
 
-        preferredContentSize = NSSize(width: 1920, height: 1080)
-
         moreToolbar.image = NSImage(named: "arrow.forward")
     }
 

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		844627A72581E5EB00E2AB60 /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844627A62581E5EB00E2AB60 /* WindowController.swift */; };
+		84462A992582595F00E2AB60 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84462A982582595F00E2AB60 /* Constants.swift */; };
 		E8362B8E2580F6C2007FB314 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8362B8D2580F6C2007FB314 /* AppDelegate.swift */; };
 		E8362B902580F6C2007FB314 /* SplitVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8362B8F2580F6C2007FB314 /* SplitVC.swift */; };
 		E8362B922580F6C5007FB314 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E8362B912580F6C5007FB314 /* Assets.xcassets */; };
@@ -19,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		844627A62581E5EB00E2AB60 /* WindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
+		84462A982582595F00E2AB60 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E8362B8A2580F6C2007FB314 /* HNReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HNReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8362B8D2580F6C2007FB314 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E8362B8F2580F6C2007FB314 /* SplitVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitVC.swift; sourceTree = "<group>"; };
@@ -73,6 +77,8 @@
 				E87B25492581085300B8784C /* HNItemCell.swift */,
 				E87B254C2581098300B8784C /* HNParser.swift */,
 				E87B254F258109D700B8784C /* RightVC.swift */,
+				844627A62581E5EB00E2AB60 /* WindowController.swift */,
+				84462A982582595F00E2AB60 /* Constants.swift */,
 			);
 			path = HNReader;
 			sourceTree = "<group>";
@@ -155,7 +161,9 @@
 				E87B254D2581098300B8784C /* HNParser.swift in Sources */,
 				E87B254A2581085300B8784C /* HNItemCell.swift in Sources */,
 				E8CC1A022580FF3000570942 /* LeftVC.swift in Sources */,
+				844627A72581E5EB00E2AB60 /* WindowController.swift in Sources */,
 				E87B2550258109D700B8784C /* RightVC.swift in Sources */,
+				84462A992582595F00E2AB60 /* Constants.swift in Sources */,
 				E8362B902580F6C2007FB314 /* SplitVC.swift in Sources */,
 				E8362B8E2580F6C2007FB314 /* AppDelegate.swift in Sources */,
 			);

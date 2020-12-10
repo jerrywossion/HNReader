@@ -26,10 +26,12 @@ class LeftVC: NSViewController {
 
     private func reloadItems(page: Int) {
         isLoading = true
-        getHNItems(page: page) { [self] items in
-            self.items = items
-            itemList.reloadData()
-            isLoading = false
+        DispatchQueue.main.async {
+            getHNItems(page: page) { [self] items in
+                self.items = items
+                itemList.reloadData()
+                isLoading = false
+            }
         }
     }
 
@@ -43,14 +45,37 @@ class LeftVC: NSViewController {
         urlCache = defaults.object(forKey: urlCacheKey) as? [String: Int] ?? [:]
 
         reloadItems(page: currentPage)
+
+        NotificationCenter.default.addObserver(self, selector: #selector(onHomePage(_:)), name: .homePage, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(onPrevPage(_:)), name: .prevPage, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(onNextPage(_:)), name: .nextPage, object: nil)
     }
 
-    @IBAction func onHome(_ sender: NSButton) {
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+
+    @objc func onHomePage(_ sender: NSButton) {
+        guard !isLoading else { return }
+
         currentPage = 1
         reloadItems(page: currentPage)
     }
 
-    @IBAction func onMore(_ sender: NSButton) {
+    @objc func onPrevPage(_ sender: NSButton) {
+        guard !isLoading else { return }
+
+        currentPage -= 1
+        if currentPage < 1 {
+            currentPage = 1
+        }
+        reloadItems(page: currentPage)
+        itemList.scroll(.zero)
+    }
+
+    @objc func onNextPage(_ sender: NSButton) {
+        guard !isLoading else { return }
+
         currentPage += 1
         reloadItems(page: currentPage)
         itemList.scroll(.zero)
@@ -100,7 +125,7 @@ extension LeftVC: NSTableViewDelegate {
         let clickedItem = items[itemList.selectedRow]
         let userInfo = ["item": clickedItem]
         NotificationCenter.default.post(
-            name: Notification.Name("ItemClicked"),
+            name: .itemClicked,
             object: nil,
             userInfo: userInfo
         )
