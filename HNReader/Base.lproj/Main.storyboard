@@ -899,25 +899,31 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <tabView drawsBackground="NO" type="bottomTabsBezelBorder" translatesAutoresizingMaskIntoConstraints="NO" id="7Q7-0g-x5U">
-                                <rect key="frame" x="-7" y="-6" width="316" height="126"/>
+                                <rect key="frame" x="-7" y="-6" width="316" height="74"/>
                                 <font key="font" metaFont="system"/>
                                 <tabViewItems>
                                     <tabViewItem label="Page" identifier="" id="ObB-iU-X5S">
                                         <view key="view" id="Fly-ci-Utd">
-                                            <rect key="frame" x="10" y="7" width="296" height="88"/>
+                                            <rect key="frame" x="10" y="7" width="296" height="36"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <wkWebView wantsLayer="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ayx-nN-SUD">
-                                                    <rect key="frame" x="0.0" y="0.0" width="296" height="88"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="296" height="30"/>
                                                     <wkWebViewConfiguration key="configuration">
                                                         <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
                                                         <wkPreferences key="preferences"/>
                                                     </wkWebViewConfiguration>
                                                 </wkWebView>
+                                                <progressIndicator maxValue="1" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="cIg-Qs-XzU">
+                                                    <rect key="frame" x="0.0" y="17" width="296" height="20"/>
+                                                </progressIndicator>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="ayx-nN-SUD" firstAttribute="top" secondItem="Fly-ci-Utd" secondAttribute="top" id="AuQ-yP-4Io"/>
+                                                <constraint firstItem="cIg-Qs-XzU" firstAttribute="leading" secondItem="Fly-ci-Utd" secondAttribute="leading" id="0aS-Cz-CdC"/>
+                                                <constraint firstItem="cIg-Qs-XzU" firstAttribute="top" secondItem="Fly-ci-Utd" secondAttribute="top" id="7vi-n8-Vdh"/>
+                                                <constraint firstItem="ayx-nN-SUD" firstAttribute="top" secondItem="Fly-ci-Utd" secondAttribute="top" constant="6" id="AuQ-yP-4Io"/>
                                                 <constraint firstItem="ayx-nN-SUD" firstAttribute="leading" secondItem="Fly-ci-Utd" secondAttribute="leading" id="cI0-In-qIS"/>
+                                                <constraint firstAttribute="trailing" secondItem="cIg-Qs-XzU" secondAttribute="trailing" id="hMB-8o-k2F"/>
                                                 <constraint firstAttribute="bottom" secondItem="ayx-nN-SUD" secondAttribute="bottom" id="ofD-x0-DPG"/>
                                                 <constraint firstAttribute="trailing" secondItem="ayx-nN-SUD" secondAttribute="trailing" id="vly-5f-Tdm"/>
                                             </constraints>
@@ -925,11 +931,11 @@
                                     </tabViewItem>
                                     <tabViewItem label="Comments" identifier="" id="sUy-cR-Jl9">
                                         <view key="view" id="gbL-ww-6hc">
-                                            <rect key="frame" x="10" y="7" width="296" height="88"/>
+                                            <rect key="frame" x="10" y="7" width="296" height="36"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <wkWebView wantsLayer="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TGR-XW-L15">
-                                                    <rect key="frame" x="0.0" y="0.0" width="296" height="88"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="296" height="36"/>
                                                     <wkWebViewConfiguration key="configuration">
                                                         <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
                                                         <wkPreferences key="preferences"/>
@@ -951,7 +957,7 @@
                             </tabView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="7Q7-0g-x5U" firstAttribute="top" secondItem="Tsg-TC-eS0" secondAttribute="top" id="2CH-Rq-LpY"/>
+                            <constraint firstItem="7Q7-0g-x5U" firstAttribute="top" secondItem="GCY-7A-z74" secondAttribute="top" id="2CH-Rq-LpY"/>
                             <constraint firstItem="7Q7-0g-x5U" firstAttribute="trailing" secondItem="GCY-7A-z74" secondAttribute="trailing" id="Frp-uM-dGG"/>
                             <constraint firstItem="GCY-7A-z74" firstAttribute="bottom" secondItem="7Q7-0g-x5U" secondAttribute="bottom" id="LPt-7B-uMB"/>
                             <constraint firstItem="7Q7-0g-x5U" firstAttribute="leading" secondItem="GCY-7A-z74" secondAttribute="leading" id="PE3-NF-qY6"/>
@@ -962,8 +968,9 @@
                     <connections>
                         <outlet property="commentItem" destination="sUy-cR-Jl9" id="eLm-5W-TpQ"/>
                         <outlet property="commentPage" destination="TGR-XW-L15" id="Xfz-fS-upz"/>
-                        <outlet property="pageItem" destination="ObB-iU-X5S" id="YUA-bv-ckD"/>
+                        <outlet property="sourceItem" destination="ObB-iU-X5S" id="YUA-bv-ckD"/>
                         <outlet property="sourcePage" destination="ayx-nN-SUD" id="jdJ-3T-QXd"/>
+                        <outlet property="sourceProgress" destination="cIg-Qs-XzU" id="FaD-WM-ri4"/>
                         <outlet property="tabView" destination="7Q7-0g-x5U" id="PYY-bl-xtp"/>
                     </connections>
                 </viewController>

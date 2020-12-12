@@ -48,10 +48,9 @@ func getHNItems(page: Int = 0, completion: (([HNItem]) -> Void)?) {
             let athings = try doc.select(".athing")
             var items: [HNItem] = []
             for athing in athings {
-                guard let rankElement = try athing.select(".title").first() else { continue }
-                guard let tdElement = try rankElement.select("td").first() else { continue }
-                guard let spanElement = try tdElement.select("span").first() else { continue }
-                let rank = try spanElement.text()
+                guard
+                    let rank = try athing.select(".title").first()?.select("td").first()?.select("span").first()?.text()
+                else { continue }
 
                 guard let titleElement = try athing.select(".title").last() else { continue }
                 guard let a = try titleElement.select("a").first() else { continue }

@@ -16,6 +16,7 @@ extension NSToolbarItem.Identifier {
     static let homePage = NSToolbarItem.Identifier("homePage")
     static let prevPage = NSToolbarItem.Identifier("prevPage")
     static let nextPage = NSToolbarItem.Identifier("nextPage")
+    static let reload = NSToolbarItem.Identifier("reload")
     static let openInBrowser = NSToolbarItem.Identifier("openInBrowser")
 }
 
@@ -24,5 +25,6 @@ extension Notification.Name {
     static let homePage = Notification.Name("homePage")
     static let prevPage = Notification.Name("prevPage")
     static let nextPage = Notification.Name("nextPage")
+    static let reload = Notification.Name("reload")
     static let openInBrowser = Notification.Name("openInBrowser")
 }

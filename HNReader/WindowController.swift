@@ -16,6 +16,7 @@ class WindowController: NSWindowController {
         .toggleSidebar,
         .sidebarTrackingSeparator,
         .flexibleSpace,
+        .reload,
         .openInBrowser,
     ]
 
@@ -69,6 +70,13 @@ extension WindowController: NSToolbarDelegate {
             let label = "HackerNews homepage"
             item.image = NSImage(systemSymbolName: "arrow.forward", accessibilityDescription: label)
             return item
+        case .reload:
+            let item = NSToolbarItem(itemIdentifier: itemIdentifier)
+            item.target = self
+            item.action = #selector(reload(_:))
+            let label = "Reload"
+            item.image = NSImage(systemSymbolName: "arrow.clockwise", accessibilityDescription: label)
+            return item
         case .openInBrowser:
             let item = NSToolbarItem(itemIdentifier: itemIdentifier)
             item.target = self
@@ -92,6 +100,10 @@ extension WindowController: NSToolbarDelegate {
 
     @objc func onNextPage(_ sender: Any?) {
         NotificationCenter.default.post(name: .nextPage, object: nil)
+    }
+
+    @objc func reload(_ sender: Any?) {
+        NotificationCenter.default.post(name: .reload, object: nil)
     }
 
     @objc func openInBrowser(_ sender: Any?) {
